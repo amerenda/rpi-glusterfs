@@ -6,12 +6,12 @@ ENV container docker
 
 ENV ARCH "arm32v7"
 LABEL architecture="$ARCH" \
-      name="gluster/gluster-centos" \
+      name="amerenda/rpi-gluster-server" \
       version="latest" \
-      vendor="CentOS Community" \
-      summary="This image has a running glusterfs service (CentOS 7 + latest Gluster)" \
-      io.k8s.display-name="Gluster server based on CentOS 7" \
-      io.k8s.description="Gluster Image is based on CentOS Image which is a scalable network filesystem. Using common off-the-shelf hardware, you can create large, distributed storage solutions for media streaming, data analysis, and other data- and bandwidth-intensive tasks." \
+      vendor="rpi communitu" \
+      summary="This image has a running glusterfs service (arm32 fedora + latest Gluster)" \
+      io.k8s.display-name="Gluster server based on fedora" \
+      io.k8s.description="Gluster Image is based on Fedora Image which is a scalable network filesystem. Using common off-the-shelf hardware, you can create large, distributed storage solutions for media streaming, data analysis, and other data- and bandwidth-intensive tasks." \
       description="Gluster Image is based on CentOS Image which is a scalable network filesystem. Using common off-the-shelf hardware, you can create large, distributed storage solutions for media streaming, data analysis, and other data- and bandwidth-intensive tasks."
 
 RUN yum --setopt=tsflags=nodocs -y update && yum clean all && \
