@@ -1,4 +1,4 @@
-FROM arm32v7/centos:7
+FROM arm32v7/fedora
 
 MAINTAINER Humble Chirammal hchiramm@redhat.com Saravanakumar Arumugam sarumuga@redhat.com
 

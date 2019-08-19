@@ -1,4 +1,4 @@
-FROM centos:7
+FROM arm32v7/fedora
 MAINTAINER Prashanth Pai <ppai@redhat.com>
 
 # centos-release-openstack-pike package resides in the extras repo.
@@ -9,7 +9,7 @@ MAINTAINER Prashanth Pai <ppai@redhat.com>
 # Install gluster-swift dependencies. To be removed when RPMs become available.
 # Clean downloaded packages and index
 
-LABEL architecture="x86_64" \
+LABEL architecture="arm32v7" \
       name="gluster/gluster-swift" \
       version="pike" \
       vendor="Red Hat, Inc" \
