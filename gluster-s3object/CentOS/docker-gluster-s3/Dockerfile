@@ -20,7 +20,6 @@ LABEL architecture="arm32v7" \
       io.openshift.tags="gluster,glusterfs,gluster-swift"
 
 RUN yum -v --setopt=tsflags=nodocs -y update && \
-    yum -v --setopt=tsflags=nodocs -y install centos-release-openstack-pike && \
     yum -v --setopt=tsflags=nodocs -y install epel-release && \
     yum -v --setopt=tsflags=nodocs -y install \
         openstack-swift openstack-swift-{proxy,account,container,object,plugin-swift3} \
