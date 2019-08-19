@@ -1,21 +1,20 @@
-FROM centos:7
+FROM arm32v7/fedora
 
 MAINTAINER Humble Chirammal hchiramm@redhat.com Saravanakumar Arumugam sarumuga@redhat.com
 
 ENV container docker
 
-ENV ARCH "x86_64"
+ENV ARCH "arm32v7"
 LABEL architecture="$ARCH" \
-      name="gluster/gluster-centos" \
+      name="amerenda/rpi-gluster-server" \
       version="latest" \
-      vendor="CentOS Community" \
-      summary="This image has a running glusterfs service (CentOS 7 + latest Gluster)" \
-      io.k8s.display-name="Gluster server based on CentOS 7" \
-      io.k8s.description="Gluster Image is based on CentOS Image which is a scalable network filesystem. Using common off-the-shelf hardware, you can create large, distributed storage solutions for media streaming, data analysis, and other data- and bandwidth-intensive tasks." \
-      description="Gluster Image is based on CentOS Image which is a scalable network filesystem. Using common off-the-shelf hardware, you can create large, distributed storage solutions for media streaming, data analysis, and other data- and bandwidth-intensive tasks." \
-      io.openshift.tags="gluster,glusterfs,glusterfs-centos"
+      vendor="rpi communitu" \
+      summary="This image has a running glusterfs service (arm32 fedora + latest Gluster)" \
+      io.k8s.display-name="Gluster server based on fedora" \
+      io.k8s.description="Gluster Image is based on Fedora Image which is a scalable network filesystem. Using common off-the-shelf hardware, you can create large, distributed storage solutions for media streaming, data analysis, and other data- and bandwidth-intensive tasks." \
+      description="Gluster Image is based on CentOS Image which is a scalable network filesystem. Using common off-the-shelf hardware, you can create large, distributed storage solutions for media streaming, data analysis, and other data- and bandwidth-intensive tasks."
 
-RUN yum --setopt=tsflags=nodocs -y update && yum install -y centos-release-gluster && yum clean all && \
+RUN yum --setopt=tsflags=nodocs -y update && yum clean all && \
 (cd /lib/systemd/system/sysinit.target.wants/; for i in *; do [ $i == systemd-tmpfiles-setup.service ] || rm -f $i; done) && \
 rm -f /lib/systemd/system/multi-user.target.wants/* &&\
 rm -f /etc/systemd/system/*.wants/* &&\

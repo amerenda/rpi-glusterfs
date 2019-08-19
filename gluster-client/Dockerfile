@@ -1,8 +1,8 @@
-FROM fedora
+FROM arm32v7/fedora
 
 MAINTAINER Humble Devassy Chirammal  <hchiramm@redhat.com>
 
-LABEL architecture="x86_64" \
+LABEL architecture="arm32v7" \
       name="gluster/glusterfs-client" \
       version="4.1" \
       vendor="Red Hat, Inc" \

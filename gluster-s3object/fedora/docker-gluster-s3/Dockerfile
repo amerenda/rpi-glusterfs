@@ -1,26 +1,22 @@
-FROM centos:7
+FROM arm32v7/fedora
 MAINTAINER Prashanth Pai <ppai@redhat.com>
 
-# centos-release-openstack-pike package resides in the extras repo.
-# All subsequent actual packages come from the CentOS Cloud SIG repo:
-# http://mirror.centos.org/centos/7/cloud/x86_64/
 
 # Install PACO servers and S3 middleware.
 # Install gluster-swift dependencies. To be removed when RPMs become available.
 # Clean downloaded packages and index
 
-LABEL architecture="x86_64" \
+LABEL architecture="arm32v7" \
       name="gluster/gluster-swift" \
       version="pike" \
       vendor="Red Hat, Inc" \
-      summary="This image has a running gluster-swift service ( centos 7 + gluster-swift)" \
-      io.k8s.display-name="gluster-swift based on centos 7" \
-      io.k8s.description="gluster-swift image is based on centos image which enables files and directories created on GlusterFS to be accessed as objects via the Swift and S3 API." \
-      description="gluster-swift image is based on centos image which enables files and directories created on GlusterFS to be accessed as objects via the Swift and S3 API." \
+      summary="This image has a running gluster-swift service ( arm fedora + gluster-swift)" \
+      io.k8s.display-name="gluster-swift based on fedora" \
+      io.k8s.description="gluster-swift image is based on fedora image which enables files and directories created on GlusterFS to be accessed as objects via the Swift and S3 API." \
+      description="gluster-swift image is based on fedora image which enables files and directories created on GlusterFS to be accessed as objects via the Swift and S3 API." \
       io.openshift.tags="gluster,glusterfs,gluster-swift"
 
 RUN yum -v --setopt=tsflags=nodocs -y update && \
-    yum -v --setopt=tsflags=nodocs -y install centos-release-openstack-pike && \
     yum -v --setopt=tsflags=nodocs -y install epel-release && \
     yum -v --setopt=tsflags=nodocs -y install \
         openstack-swift openstack-swift-{proxy,account,container,object,plugin-swift3} \
