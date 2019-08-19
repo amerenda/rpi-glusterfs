@@ -1,10 +1,10 @@
-FROM centos:7
+FROM arm32v7/centos:7
 
 MAINTAINER Humble Chirammal hchiramm@redhat.com Saravanakumar Arumugam sarumuga@redhat.com
 
 ENV container docker
 
-ENV ARCH "x86_64"
+ENV ARCH "arm32v7"
 LABEL architecture="$ARCH" \
       name="gluster/gluster-centos" \
       version="latest" \
